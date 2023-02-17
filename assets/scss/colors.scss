@@ -1,0 +1,29 @@
+$primary-green: #075127;
+$secondary-green: #3FAA37;
+
+$primary-grey: #7F847E;
+$secondary-grey: #F9FAFC;
+
+.bg-green {
+    background-color: $primary-green;
+}
+
+.text-color {
+    color: $primary-green;
+}
+
+.bg-grey {
+    background-color: $primary-grey;
+}
+
+.ecomode {
+    .bg-green {
+        background-color: $primary-grey;
+    }
+    .bg-grey {
+        background-color: $primary-green;
+    }   
+    .text-color {
+        color: $primary-grey;
+    }
+}

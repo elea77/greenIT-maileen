@@ -11,14 +11,13 @@ const paths = {
   scss: {
     src: './scss/style.scss',
     dest: './css',
-    watch: './scss/**/*.scss',
-    bootstrap: './node_modules/bootstrap/scss/bootstrap.scss'
+    watch: './scss/**/*.scss'
   }
 }
 
 // Compile sass into CSS & auto-inject into browsers
 function styles () {
-  return gulp.src([paths.scss.bootstrap, paths.scss.src])
+  return gulp.src([paths.scss.src])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer({
@@ -44,12 +43,7 @@ function styles () {
 
 // Static Server + watching scss/html files
 function serve () {
-//   browserSync.init({
-//     proxy: 'http://yourdomain.com',
-//   })
-
-  gulp.watch([paths.scss.watch, paths.scss.bootstrap], styles)
-//   gulp.watch([paths.scss.watch, paths.scss.bootstrap], styles).on('change', browserSync.reload)
+  gulp.watch([paths.scss.watch], styles)
 }
 
 const build = gulp.series(styles, gulp.parallel(serve))

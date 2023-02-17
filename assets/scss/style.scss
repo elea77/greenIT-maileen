@@ -1,7 +1,126 @@
-#main {
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
+@import "./colors.scss";
+
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    background-color: $secondary-grey;
+    .navbar {
+        justify-content: space-between;
+        & > .search {
+            max-width: 12rem;
+        }
+    }
+    #main {
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 5rem;
+            height: calc(100vh - 2rem);
+            border-radius: 10px;
+            .nav {
+                height: 100%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                & > .nav-item {
+                    & > .nav-link {
+                        color: #A6A9A6;
+                        font-size: 0;
+                        border-radius: 10px;
+                        transition: .3s;
+                        i {
+                            font-size: 1.4rem;
+                        }
+                        &.active,
+                        &:hover {
+                            @extend .bg-green;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+        & > .content {
+            max-width: calc(100% - 6rem);
+            margin-right: 0;
+            .inbox {
+                .listing {
+                    .inbox__header {
+                        align-items: center;
+                        justify-content: space-between;
+                        h1 {
+                            font-size: 1.3rem;
+                        }
+                        span {
+                            color: $primary-green;
+                            background-color: rgba($color: $secondary-green, $alpha: 0.2);
+                            border-radius: 10px;
+                            padding: 0.2rem 0.4rem;
+                            font-size: 0.8rem;
+                        }
+                        i {
+                            background-color: white;
+                            border: 1px solid #EAEDFB;
+                            border-radius: 50%;
+                            color: $primary-grey;
+                            width: 26px;
+                            height: 26px;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            &:first-child {
+                                transform: rotate(270deg);
+                            }
+                        }
+                    }
+                    .inbox__mails {
+                        .mail__overview {
+                            border: 1px solid #EAEDFB;
+                            border-radius: 10px;
+                            background-color: white;
+                            & > .mail__header {
+                                align-items: center;
+                                position: relative;
+                                img {
+                                    border-radius: 50%;
+                                    height: 35px;
+                                    width: 35px;
+                                    border: 1px solid #EAEDFB;
+                                }
+                                h2 {
+                                    font-size: 1rem;
+                                    font-weight: bold;
+                                }
+                                .date {
+                                    font-size: 0.8rem;
+                                    position: absolute;
+                                    right: 0;
+                                    color: $primary-grey;
+                                }
+                            }
+                            & > .object {
+                                margin-left: 4rem;
+                                color: $primary-green;
+                                font-size: 0.8rem;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            & > .content {
+                                margin-left: 4rem;
+                                color: $primary-grey;
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+                }
+                .mail {
+
+                }
+            }
+        }
     }
 }
+
+
