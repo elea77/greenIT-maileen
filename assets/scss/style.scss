@@ -73,6 +73,8 @@ body {
                         }
                     }
                     .inbox__mails {
+                        overflow-y: scroll;
+                        height: calc(100vh - 150px);
                         .mail__overview {
                             border: 1px solid #EAEDFB;
                             border-radius: 10px;
