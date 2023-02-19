@@ -6,14 +6,25 @@ $secondary-grey: #F9FAFC;
 
 .bg-green {
     background-color: $primary-green;
+    transition: 0.3s;
 }
 
 .text-color {
     color: $primary-green;
+    transition: 0.3s;
 }
 
 .bg-grey {
     background-color: $primary-grey;
+    transition: 0.3s;
+}
+
+.bg-green-opacity {
+    background-color: rgba($color: $secondary-green, $alpha: 0.2);
+}
+
+.bg-grey-opacity {
+    background-color: rgba($color: $secondary-grey, $alpha: 0.2);
 }
 
 .ecomode {
@@ -25,5 +36,12 @@ $secondary-grey: #F9FAFC;
     }   
     .text-color {
         color: $primary-grey;
+    }
+    .bg-green-opacity {
+        background-color: rgba($color: $primary-grey, $alpha: 0.2);
+    }
+
+    .bg-grey-opacity {
+        background-color: rgba($color: $secondary-green, $alpha: 0.2);
     }
 }
