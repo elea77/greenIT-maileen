@@ -3,6 +3,8 @@ $secondary-green: #3FAA37;
 
 $primary-grey: #7F847E;
 $secondary-grey: #F9FAFC;
+$light-grey: #EAEDFB;
+$grey: #F0F0F0;
 
 .bg-green {
     background-color: $primary-green;
@@ -27,6 +29,25 @@ $secondary-grey: #F9FAFC;
     background-color: rgba($color: $secondary-grey, $alpha: 0.2);
 }
 
+.btn {
+    min-width: 12rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: $primary-green;
+    border: 1px solid $primary-green;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: $grey;
+    border: 1px solid $primary-green;
+    color: $primary-green;
+}
+
 .ecomode {
     .bg-green {
         background-color: $primary-grey;
@@ -40,8 +61,10 @@ $secondary-grey: #F9FAFC;
     .bg-green-opacity {
         background-color: rgba($color: $primary-grey, $alpha: 0.2);
     }
-
     .bg-grey-opacity {
         background-color: rgba($color: $secondary-green, $alpha: 0.2);
+    }
+    .icon-font-color {
+        color: $primary-grey;
     }
 }
