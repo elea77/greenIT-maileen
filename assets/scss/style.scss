@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@import "./ecomode.scss";
 
 
 body {
@@ -6,8 +6,33 @@ body {
     background-color: $secondary-grey;
     .navbar {
         justify-content: space-between;
-        & > .search {
-            max-width: 12rem;
+        & > .form-search {
+            position: relative;
+            & > input {
+                padding: 0.3rem 3rem;
+                border-radius: 10px;
+                font-size: 0.8rem;
+                &::placeholder {
+                    color: #a6a9a6;
+                }
+                &:hover,
+                &:focus {
+                    outline: none;
+                }
+            }
+            i {
+                position: absolute;
+                left: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        & > .mode-eco {
+            justify-content: end;
+            input:checked {
+                background-color: $primary-grey;
+                border-color: $primary-grey;
+            }
         }
     }
     #main {
@@ -34,7 +59,7 @@ body {
                         }
                         &.active,
                         &:hover {
-                            @extend .bg-green;
+                            @extend .bg-grey-opacity;
                             color: white;
                         }
                     }
@@ -74,7 +99,7 @@ body {
                     }
                     .inbox__mails {
                         overflow-y: scroll;
-                        height: calc(100vh - 150px);
+                        height: calc(100vh - 160px);
                         .mail__overview {
                             border: 1px solid $light-grey;
                             border-radius: 10px;
@@ -121,89 +146,88 @@ body {
                     }
                     .write-mail {
                         border: 1px solid $light-grey;
-                        min-height: calc(100vh - 150px);
+                        overflow-y: scroll;
+                        height: calc(100vh - 160px);
                         border-radius: 10px;
                         background-color: white;
                         position: relative;
-                        .form-mail {
-                            .destinataires {
-                                display: flex;
-                                span {
-                                    border: 1px solid $light-grey;
-                                    border-radius: 10px;
-                                    background-color: $grey;
-                                    font-weight: bold;
-                                }
-                            }
-                            input[type=text] {
-                                border: none;
-                                border-bottom: 1px solid $light-grey;
-                                width: 100%;
-                                font-size: 0.9rem;
-                                &:focus {
-                                    outline: none;
-                                }
-                            }
-                            & > input[type=text] {
+                        .destinataires {
+                            display: flex;
+                            span {
+                                border: 1px solid $light-grey;
+                                border-radius: 10px;
+                                background-color: $grey;
                                 font-weight: bold;
-                                &::placeholder {
-                                    font-style: italic;
-                                    color: $primary-grey;
+                            }
+                        }
+                        input[type=text] {
+                            border: none;
+                            border-bottom: 1px solid $light-grey;
+                            width: 100%;
+                            font-size: 0.9rem;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        & > input[type=text] {
+                            font-weight: bold;
+                            &::placeholder {
+                                font-style: italic;
+                                color: $primary-grey;
+                            }
+                        }
+                        & > textarea {
+                            resize: none;
+                            width: calc(100% - 3rem);
+                            height: 50%;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        .form-bottom {
+                            .impact {
+                                display: block;
+                                text-align: end;
+                                position: relative;
+                                .bubble-green {
+                                    height: 3rem;
+                                }
+                                span {
+                                    color: white;
+                                    position: absolute;
+                                    right: 2.3rem;
+                                    top: 1.8rem;
+                                    font-size: 0.9rem;
                                 }
                             }
-                            & > textarea {
-                                resize: none;
-                                width: calc(100% - 3rem);
-                                height: 50%;
-                                &:focus {
-                                    outline: none;
+                            .edition {
+                                border-top: 1px solid $light-grey;
+                                border-bottom: 1px solid $light-grey;
+                                flex-wrap: wrap;
+                                select {
+                                    width: auto;
+                                    background-color: $grey;
+                                    font-size: 0.9rem;
+                                    cursor: pointer;
                                 }
-                            }
-                            .form-bottom {
-                                position: absolute;
-                                bottom: 0;
-                                left: 0;
-                                width: 100%;
-                                .impact {
-                                    display: block;
-                                    text-align: end;
-                                    position: relative;
-                                    .bubble-green {
-                                        height: 3rem;
-                                    }
-                                    span {
-                                        color: white;
-                                        position: absolute;
-                                        right: 2.3rem;
-                                        top: 1.8rem;
-                                        font-size: 0.9rem;
-                                    }
-                                }
-                                .edition {
-                                    border-top: 1px solid $light-grey;
-                                    border-bottom: 1px solid $light-grey;
-                                    select {
-                                        width: auto;
-                                        background-color: $grey;
-                                        font-size: 0.9rem;
-                                    }
-                                    .icons {
-                                        align-items: center;
-                                        justify-content: space-between;
-                                        min-width: 14rem;
-                                        i {
-                                            font-size: 1.4rem;
-                                            &.icon-font-color {
-                                                border-bottom: 4px solid $primary-green;
-                                            }
+                                .icons {
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    min-width: 14rem;
+                                    i {
+                                        cursor: pointer;
+                                        font-size: 1.4rem;
+                                        &.icon-font-color {
+                                            border-bottom: 4px solid $primary-green;
                                         }
                                     }
                                 }
-                                .form-actions {
-                                    align-items: center;
-                                    i {
-                                        font-size: 1.2rem;
-                                    }
+                            }
+                            .form-actions {
+                                align-items: center;
+                                flex-wrap: wrap;
+                                i {
+                                    font-size: 1.2rem;
                                 }
                             }
                         }

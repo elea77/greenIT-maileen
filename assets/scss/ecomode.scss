@@ -67,4 +67,22 @@ $grey: #F0F0F0;
     .icon-font-color {
         color: $primary-grey;
     }
+    .bubble-green {
+        filter: grayscale(1);
+    }
+    .btn-primary {
+        background-color: $primary-grey;
+        border: 1px solid $primary-grey;
+        color: white;
+    }
+    .btn-secondary {
+        background-color: $grey;
+        border: 1px solid $primary-grey;
+        color: $primary-grey;
+    }
+    .mail__header {
+        img {
+            filter: grayscale(1);
+        }
+    }
 }
